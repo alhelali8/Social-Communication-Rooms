@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>Have a Seat Universe — Virtual Universe (Live 3D · Phase 1)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css" />
+</head>
+<body class="world-body">
+
+  <div id="app"></div>
+
+  <!-- Loading -->
+  <div id="loading" class="loading"><div class="spinner"></div><span>Building the universe…</span></div>
+
+  <!-- Top bar -->
+  <header class="topbar">
+    <div class="tb-brand">
+      <span class="tb-logo">HSU</span>
+      <span class="tb-name">Have a Seat Universe<small>Virtual Universe · Live 3D · Phase 1</small></span>
+    </div>
+    <div class="tb-right">
+      <div id="hud-room" class="hud-room">Main Spawn</div>
+      <button id="btn-season" class="tb-btn ghost">🍂 Fall</button>
+      <button id="btn-dir" class="tb-btn">🗺️ Directory</button>
+    </div>
+  </header>
+
+  <!-- Facilities directory -->
+  <div id="directory" class="directory">
+    <div class="dir-panel">
+      <div class="dir-head">
+        <div><h3>Universe Directory</h3><p class="dir-sub">Locate &amp; travel to any facility</p></div>
+        <button id="dir-close" class="card-x">✕</button>
+      </div>
+      <div id="dir-list" class="dir-list"></div>
+    </div>
+  </div>
+
+  <!-- Controls hint -->
+  <div class="controls3d">
+    <span><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> / arrows move</span>
+    <span><kbd>Q</kbd><kbd>E</kbd> turn camera</span>
+    <span><kbd>F</kbd> interact</span>
+    <span><kbd>Shift</kbd> run</span>
+  </div>
+
+  <!-- Interaction prompt -->
+  <div id="prompt" class="prompt3d"><kbd>F</kbd> <span id="prompt-label">Interact</span></div>
+
+  <!-- Touch joystick (mobile) -->
+  <div id="joy" class="joy"><div id="joy-knob" class="joy-knob"></div></div>
+  <button id="touch-f" class="touch-f">F</button>
+
+  <!-- Info panel -->
+  <aside id="card" class="info-card" aria-hidden="true">
+    <button id="card-close" class="card-x">✕</button>
+    <div class="card-head">
+      <div class="card-eyebrow"><span id="card-num" class="card-num">1</span><span id="card-sub" class="card-sub">Subtitle</span></div>
+      <h2 id="card-title" class="card-title">Title</h2>
+    </div>
+    <div class="card-body">
+      <p id="card-blurb" class="card-blurb">Blurb</p>
+      <ul id="card-bullets" class="card-bullets"></ul>
+      <div id="card-form" class="card-form"></div>
+      <div id="card-links" class="card-links"></div>
+    </div>
+  </aside>
+
+  <!-- Intro -->
+  <div id="intro" class="overlay show intro">
+    <div class="panel intro-panel">
+      <div class="intro-badge">VIRTUAL UNIVERSE · PHASE 1–3 · LIVE 3D</div>
+      <h1>Have a Seat Universe</h1>
+      <p class="intro-tag">Pull up a seat — you belong here.</p>
+      <p class="intro-body">
+        Step inside and <b>walk the universe in real time</b>. The central-park heart connects to learning
+        &amp; work facilities, and now to <b>Phase 3</b>: a <b>Seasonal Village</b> (switch 🍂/❄️ in the top bar),
+        <b>Christmas Tree Plaza</b>, <b>Shopping District</b>, <b>Seasonal Event Center</b>, and the
+        <b>First Down Football Club</b> — clubhouse, watch-party hall, fantasy center, the field &amp; more.
+        Open the <b>🗺️ Directory</b> to travel anywhere, or press <kbd>F</kbd> at a glowing kiosk.
+      </p>
+      <button id="intro-start" class="cta">Enter the universe →</button>
+      <p class="intro-hint">Move: <kbd>WASD</kbd> · Turn camera: <kbd>Q</kbd>/<kbd>E</kbd> · Interact: <kbd>F</kbd></p>
+    </div>
+  </div>
+
+  <script type="importmap">
+  { "imports": { "three": "./vendor/three.module.js" } }
+  </script>
+  <script type="module" src="world.js"></script>
+</body>
+</html>
